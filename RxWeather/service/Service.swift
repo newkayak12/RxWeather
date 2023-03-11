@@ -34,26 +34,27 @@ class Service {
         af = AF
     }
     
-    func get(city: City) -> Response?{
-        var res: Response?
-        let url = "https://api.openweathermap.org/data/2.5/weather?q=\(city.name)&units=metric&lang=kr&appid=\(apiKey)"
-        
-        af.request(url, method: .get)
-          .responseDecodable(of: Response.self){ response in
-              switch response.result {
-                  case .success(let response) :
-                      res = response
-                  case .failure(let error):
-                      print(error)
-                      res = nil
-              }
-          }
-        
-        return res;
+    func get(city: City) -> Observable<Response>{
+        return  Observable
+            .create { [unowned self] ob in
+            
+                let url = "https://api.openweathermap.org/data/2.5/weather?q=\(city.name)&units=metric&lang=kr&appid=\(self.apiKey)"
+                let response = af.request(url, method: .get)
+                                 .responseDecodable(of: Response.self){ response in
+                                    switch response.result {
+                                        case .success(let response) :
+                                            ob.onNext(response)
+                                        case .failure(let error):
+                                            ob.onError(error)
+                                    }
+                                 }
+            
+                return Disposables.create {
+                    response.cancel()
+                }
+        }
     }
     
 }
 
-struct Application: Decodable {
-    var apiKey: String
-}
+

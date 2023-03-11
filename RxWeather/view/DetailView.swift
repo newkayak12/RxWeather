@@ -7,14 +7,16 @@
 
 import UIKit
 
-class DetailView: BaseViewController, Bindable {
+
+final class DetailView: BaseViewController, ViewModelBindable {
+    var viewModel: ViewModelType!
     
-    
-    func bind() {
+    func bindViewModel() {
     }
-    
     func setUI() {
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

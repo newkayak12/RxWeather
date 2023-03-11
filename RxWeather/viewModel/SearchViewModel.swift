@@ -9,5 +9,13 @@ import Foundation
 import RxSwift
 
 class SearchViewModel: ViewModelType {
+    var log: Log
+    var service: Service
     
+    var responseList: [Response] = []
+    
+    init(service: Service, log: Log) {
+        self.service = service
+        self.log = log
+    }
 }

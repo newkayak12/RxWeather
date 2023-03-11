@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import RxWeather
+import NSObject_Rx
 
 final class RxWeatherTests: XCTestCase {
 
@@ -24,9 +25,8 @@ final class RxWeatherTests: XCTestCase {
     
     func testService() {
         let city = City(name: "Seoul")
-        async {
-            await print(Service.shared.get(city: city))
-        }
+        Service.shared.get(city: city).subscribe{ print($0) }.disposed(by: rx.disposeBag)
+        
     }
 
     func testPerformanceExample() throws {

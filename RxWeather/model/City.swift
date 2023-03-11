@@ -6,6 +6,6 @@
 //
 
 import Foundation
-struct City: Codable {
+struct City: Codable, Equatable {
     var name: String
 }

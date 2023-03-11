@@ -9,6 +9,11 @@ import Foundation
 import RxSwift
 
 class DetailViewModel: ViewModelType {
+    var service: Service
+    var log: Log
     
-    
+    init(service: Service, log: Log) {
+        self.service = service
+        self.log = log
+    }
 }
