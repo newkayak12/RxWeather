@@ -17,7 +17,7 @@ extension ViewModelBindable where Self: UIViewController {
     mutating func bind(viewModel: Self.ViewModel){
         self.viewModel = viewModel
         loadViewIfNeeded()
-        bindViewModel()
         setUI()
+        bindViewModel()
     }
 }
