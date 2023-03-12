@@ -152,7 +152,7 @@ final class DetailView: BaseViewController, ViewModelBindable {
         
         image.contentMode = .scaleAspectFit
         image.snp.makeConstraints { make in
-            make.width.equalTo(100)
+            make.height.equalTo(100)
 //            make.height.equalTo(200)
         }
 //        weatherContainer.snp.makeConstraints { make in
