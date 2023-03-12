@@ -13,8 +13,6 @@ import NSObject_Rx
 
 protocol CustomTextFieldDelegate {
     func tab(city: City)
-    func focus()
-    func defocus()
 }
 class CustomTextField: UIView {
     private var textInput :UITextField
@@ -29,7 +27,6 @@ class CustomTextField: UIView {
         recommendTable = UITableView(frame: .zero)
         super.init(frame: frame)
         cityPublisher.onNext([])
-        self.backgroundColor = .blue
         readyJSON()
         setUpUI()
         bind()
@@ -56,7 +53,9 @@ class CustomTextField: UIView {
         recommendTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.addSubview(textInput)
         self.addSubview(recommendTable)
+        
         textInput.borderStyle = .roundedRect
+        textInput.layer.borderWidth = CGFloat(0.5)
         textInput.snp.makeConstraints { make in
             make.top.equalTo(self)
             make.centerY.equalTo(self).multipliedBy(0.1)

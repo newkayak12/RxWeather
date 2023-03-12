@@ -9,4 +9,5 @@ import Foundation
 protocol ViewModelType{
     var service: Service  {get set}
     var log: Log  {get set}
+    var title: String {get set}
 }

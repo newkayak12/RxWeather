@@ -54,6 +54,25 @@ class Service {
                 }
         }
     }
+    func icon(iconNumber: String) -> Observable<Data>{
+        var url = "https://openweathermap.org/img/wn/\(iconNumber)@2x.png"
+        return Observable.create { [unowned self] ob in
+            var response = af.request(url, method: .get)
+                .responseData { response in
+                    switch response.result {
+                        case .success(let response) :
+                            ob.onNext(response)
+                        case .failure(let error) :
+                            ob.onError(error)
+                    }
+                }
+            
+            return Disposables.create{
+                response.cancel()
+            }
+            
+        }
+    }
     
 }
 
