@@ -10,6 +10,7 @@ import RxSwift
 import NSObject_Rx
 
 final class DetailView: BaseViewController, ViewModelBindable {
+    var bag = DisposeBag()
     let container: UIStackView = UIStackView(frame: .zero)
     let image: UIImageView = UIImageView(image: UIImage(named: "logo"))
     
@@ -90,17 +91,24 @@ final class DetailView: BaseViewController, ViewModelBindable {
         .disposed(by: rx.disposeBag)
         
         
+//        viewModel.response
+//            .filter{ $0.weather.count > 0 }
+//            .subscribe{ [unowned self] response in
+//                self.viewModel.service
+//                    .icon(iconNumber: response.weather[0].icon)
+//                    .subscribe{ data in
+//                        self.image.image = UIImage(data: data)
+//                    }.disposed(by: rx.disposeBag)
+//            }.disposed(by: rx.disposeBag)
+//
         viewModel.response
             .filter{ $0.weather.count > 0 }
-            .subscribe{ [unowned self] response in
-                self.viewModel.service
-                    .icon(iconNumber: response.weather[0].icon)
-                    .subscribe{ data in
-                        self.image.image = UIImage(data: data)
-                    }.disposed(by: rx.disposeBag)
+            .fetch(viewModel: viewModel)
+            .withUnretained(self)
+            .subscribe { this, ob in
+                ob.bind(to: this.image.rx.image)
+                    .disposed(by: this.rx.disposeBag)
             }.disposed(by: rx.disposeBag)
-          
-        
     }
     func initializeUI() {
         format.dateFormat = "HH시 mm분 ss일";
@@ -214,5 +222,19 @@ final class DetailView: BaseViewController, ViewModelBindable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+extension ObservableType where Element == Response {
+    
+    
+    func fetch(viewModel: ViewModelType) -> Observable<Observable<UIImage?>> {
+        return map{ response in
+            return viewModel.service
+                .icon(iconNumber: response.weather[0].icon)
+                .compactMap{ data in
+                    UIImage(data: data)
+                }
+        }
     }
 }

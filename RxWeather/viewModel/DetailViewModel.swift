@@ -24,7 +24,6 @@ class DetailViewModel: ViewModelType {
         self.city = city
     }
     public func setData(){
-        log.warn(of: "???")
         service.get(city: self.city)
                 .subscribe{ [unowned self ] data in
                     self.response.onNext(data)
