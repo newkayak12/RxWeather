@@ -36,8 +36,8 @@ final class DetailView: BaseViewController, ViewModelBindable {
     let sunset = UILabel(frame: .zero)
     
     let format = DateFormatter()
-    
     var viewModel: DetailViewModel!
+    
     func bindViewModel() {
         
         viewModel.setData()
@@ -150,6 +150,7 @@ final class DetailView: BaseViewController, ViewModelBindable {
         sunStateContainer.axis = .horizontal
         sunRiseContainer.axis = .vertical
         sunSetContainer.axis = .vertical
+        
         
         container.distribution = .fillEqually
         weatherContainer.distribution = .fillEqually

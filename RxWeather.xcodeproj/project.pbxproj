@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7E97E82929B4292C00DDC7E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E97E82829B4292C00DDC7E8 /* AppDelegate.swift */; };
 		7E97E82B29B4292C00DDC7E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E97E82A29B4292C00DDC7E8 /* SceneDelegate.swift */; };
-		7E97E83029B4292C00DDC7E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E97E82E29B4292C00DDC7E8 /* Main.storyboard */; };
 		7E97E83229B4292D00DDC7E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E97E83129B4292D00DDC7E8 /* Assets.xcassets */; };
 		7E97E83529B4292D00DDC7E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E97E83329B4292D00DDC7E8 /* LaunchScreen.storyboard */; };
 		7E97E84029B4292E00DDC7E8 /* RxWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E97E83F29B4292E00DDC7E8 /* RxWeatherTests.swift */; };
@@ -64,7 +63,6 @@
 		7E97E82529B4292C00DDC7E8 /* RxWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E97E82829B4292C00DDC7E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E97E82A29B4292C00DDC7E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7E97E82F29B4292C00DDC7E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E97E83129B4292D00DDC7E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E97E83429B4292D00DDC7E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E97E83629B4292D00DDC7E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 		7E97E86429B42A3B00DDC7E8 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				7E97E82E29B4292C00DDC7E8 /* Main.storyboard */,
 				7E97E83329B4292D00DDC7E8 /* LaunchScreen.storyboard */,
 				7E97E87C29B432E800DDC7E8 /* SearchView.swift */,
 				7E97E87E29B432EF00DDC7E8 /* DetailView.swift */,
@@ -424,7 +421,6 @@
 				7E97E89229B4636100DDC7E8 /* application.json in Resources */,
 				7E97E83529B4292D00DDC7E8 /* LaunchScreen.storyboard in Resources */,
 				7E97E83229B4292D00DDC7E8 /* Assets.xcassets in Resources */,
-				7E97E83029B4292C00DDC7E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,14 +502,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7E97E82E29B4292C00DDC7E8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7E97E82F29B4292C00DDC7E8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7E97E83329B4292D00DDC7E8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -652,7 +640,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -680,7 +667,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
